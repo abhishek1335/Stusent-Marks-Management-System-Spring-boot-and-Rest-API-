@@ -1,0 +1,27 @@
+package com.jntuk.marks;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+/**
+ * The main entry point for the JNTUK Student Marks Management System.
+ * * @SpringBootApplication: This single annotation is equivalent to using 
+ * @Configuration, @EnableAutoConfiguration, and @ComponentScan.
+ */
+@SpringBootApplication
+@EnableJpaRepositories("com.jntuk.marks.repository") // Scans for DB Repository interfaces
+@EntityScan("com.jntuk.marks.model")                // Scans for @Entity classes (Student, Marks)
+public class StudentMarksApplication {
+
+    public static void main(String[] args) {
+        // This launches the Spring Boot framework
+        SpringApplication.run(StudentMarksApplication.class, args);
+        
+        System.out.println("--------------------------------------------------");
+        System.out.println("🚀 JNTUK Marks Management System is running!");
+        System.out.println("🌐 Access Student Portal at: http://localhost:8080");
+        System.out.println("--------------------------------------------------");
+    }
+}
